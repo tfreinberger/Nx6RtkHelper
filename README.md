@@ -24,4 +24,10 @@ nx6RtkHelper.getInputStream();
 
 nx6RtkHelper.getOutputStream()
 
+```
+git status
+git add
+git commit
+```
+
 
