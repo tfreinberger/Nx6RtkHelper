@@ -10,7 +10,7 @@ settings.gradle
   - maven { url "https://jitpack.io" }
 
 build.gradle
-- implementation 'com.github.tfreinberger:Nx6RtkHelper:Tag'
+- implementation 'com.github.tfreinberger:Nx6RtkHelper:Tag' 
 
 
 # Setup
@@ -22,7 +22,7 @@ nx6RtkHelper.openSerialPath("/dev/ttyHSL1", Baudrate.DEFAULT_F9P, 0);  // DEFAUL
 // nx6RtkHelper.closeSerialPath();
 ```
 ### Baudrate
-> Tip: Use the module with Baudrate 115200 for better RTK performance!
+> Tip: Use the module with Baudrate 115200 for better RTK performance! -> See Ublox Configuration.
 
 # Read Nmea Messages
 ```
