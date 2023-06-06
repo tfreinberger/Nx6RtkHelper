@@ -102,7 +102,7 @@ nx6RtkHelper.receiveNmeaSentence(new Nx6RtkHelper.OnNmeaSentenceListener() {
             }
         });
 ```
-*Callbacks*
+*Callbacks:*
 
 After sending valid GGA sentences, rtk corrections are receiving. 
 Send the rtk corrections to the module like this.
