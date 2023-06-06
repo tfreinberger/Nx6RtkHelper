@@ -43,6 +43,7 @@ nx6RtkHelper.saveUbxConfig();
 
 # RTK Client
 **Source Table**
+
 Get your Sourcetable by searching with address and port. (Address can be IP or Domain)
 
 Use Domain without (http/s://) e.g. Address: euref-ip.net & Port: 2101 
@@ -67,4 +68,14 @@ rtkSourceTable.getSourceTypeStream(new RtkSourceTable.OnSourceTypeStream() {
                 Log.i("Mountpoint: ", mountPoint);
             }
         });
+```
+
+**Connect to Source**
+
+Connect to a NTRIP Source by using your Credentials
+```
+RtkEngine rtkEngine = new RtkEngine();
+NtripParameter ntripParameter = new NtripParameter("address", port, "mountpoint", "username", "password");
+rtkEngine.setNtripParameter(ntripParameter);
+rtkEngine.start(OnDataReceivedListener, OnStatusChangeListener);  
 ```
