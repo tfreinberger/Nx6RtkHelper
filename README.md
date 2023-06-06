@@ -40,3 +40,15 @@ Example:
 nx6RtkHelper.sendUbxCommand(UbxCommands.enableGNSMessages());
 nx6RtkHelper.saveUbxConfig();
 ```
+
+# RTK Client
+Get your Sourcetable by searching with address and port. (Address can be IP or Domain)
+```
+RtkSourceTable rtkSourceTable = new RtkSourceTable();
+rtkSourceTable.searchForSourceTable("address", port);
+rtkSourceTable.getSourceTableList(new RtkSourceTable.OnSourceTableList() {
+            @Override
+            public void onSourceTableListToString(String sourceTable) {
+                Log.i("SourceTable: ", sourceTable);
+            }
+        });
