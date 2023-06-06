@@ -18,37 +18,17 @@ build.gradle
 Nx6RtkHelper.powerOn(true);
 Nx6RtkHelper nx6RtkHelper = new Nx6RtkHelper();
 nx6RtkHelper.openSerialPath("/dev/ttyHSL1", Baudrate.DEFAULT_F9P, 0);  // DEFAULT_F9P = 38400
-InputStream inputStream = nx6RtkHelper.getInputStream();
-OutputStream outputStream = nx6RtkHelper.getOutputStream()
 ```
 # Read Nmea Messages
 ```
-ReadNmea getNMEA = new ReadNmea();
-getNMEA.start();
+nx6RtkHelper.startNmeaReading();
+// nx6RtkHelper.stopNmeaReading();
 
-class ReadNmea extends Thread {
-
-        byte[] buffer = new byte[4096];
-        int index = 0;
-
-        @Override
-        public void run() {
-            while (!isInterrupted()) {
-                try {
-                    int b = inputStream.read();
-                    buffer[index] = (byte) b;
-                    if (buffer[index] == '\n') {
-                        String nmeaSentence = new String(buffer, 0, index, StandardCharsets.ISO_8859_1);
-                        Arrays.fill(buffer, 0, index, (byte) 0);
-                        index = 0;
-                    } else {
-                        index++;
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+nx6RtkHelper.receiveNmeaSentence(new Nx6RtkHelper.OnNmeaSentenceListener() {
+            @Override
+            public void onNmeaSentence(String nmeaSentence) {
+                Log.i("Nmea Sentence: ", nmeaSentence);
             }
-        }
-    }
+        });
 ```
 
