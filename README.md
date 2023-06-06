@@ -18,6 +18,7 @@ build.gradle
 Nx6RtkHelper.powerOn(true);
 Nx6RtkHelper nx6RtkHelper = new Nx6RtkHelper();
 nx6RtkHelper.openSerialPath("/dev/ttyHSL1", Baudrate.DEFAULT_F9P, 0);  // DEFAULT_F9P = 38400
+// nx6RtkHelper.closeSerialPath();
 ```
 
 # Read Nmea Messages
