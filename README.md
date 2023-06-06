@@ -3,7 +3,7 @@ Handle RTK module with NX6P
 
 
 # Implementation
-Dependency
+#*Dependency*
 
 settings.gradle
   - maven { url "https://repo.repsy.io/mvn/handheldgroup/handheldgroup" }
