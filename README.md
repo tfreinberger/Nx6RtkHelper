@@ -35,7 +35,7 @@ nx6RtkHelper.receiveNmeaSentence(new Nx6RtkHelper.OnNmeaSentenceListener() {
 ```
 
 # Ublox Configuration
-Example:
+*Example:*
 ```
 nx6RtkHelper.sendUbxCommand(UbxCommands.enableGNSMessages());
 nx6RtkHelper.saveUbxConfig();
@@ -79,3 +79,40 @@ NtripParameter ntripParameter = new NtripParameter("address", port, "mountpoint"
 rtkEngine.setNtripParameter(ntripParameter);
 rtkEngine.start(OnDataReceivedListener, OnStatusChangeListener);  
 ```
+##Attention
+To receive correction data, you have to send NMEA GGA messages to the Source.
+*Example:*
+```
+nx6RtkHelper.receiveNmeaSentence(new Nx6RtkHelper.OnNmeaSentenceListener() {
+            @Override
+            public void onNmeaSentence(String nmeaSentence) {
+                Log.i("Nmea Sentence: ", nmeaSentence);
+                if (nmeaSentence.startsWith("$GNGGA")) {
+                    rtkEngine.sendGGA(nmeaSentence + "\n");
+                }
+            }
+        });
+```
+*Callbacks*
+After sending valid GGA sentences, rtk corrections are receiving. 
+Send the rtk corrections to the module like this.
+The module will automatically recieve corrected NMEA data.
+```
+@Override
+    public void onRTKData(byte[] data, int size) {
+        nx6RtkHelper.sendRTKData(data, size);
+    }
+
+    @Override
+    public void onChange(Status status, String... msg) {
+        switch (status) {
+            case CONNECTED:
+                ...
+                break;
+        }
+    }
+```
+
+
+
+
