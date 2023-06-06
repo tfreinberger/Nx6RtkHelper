@@ -40,8 +40,11 @@ nx6RtkHelper.receiveNmeaSentence(new Nx6RtkHelper.OnNmeaSentenceListener() {
 # Ublox Configuration
 *Example:*
 ```
-nx6RtkHelper.sendUbxCommand(UbxCommands.enableGNSMessages());
 nx6RtkHelper.sendUbxCommand(UbxCommands.setBaudRate115200);
+nx6RtkHelper.sendUbxCommand(UbxCommands.enableGNSMessages());
+nx6RtkHelper.sendUbxCommand(UbxCommands.enableGSTMessages());
+.
+.
 nx6RtkHelper.saveUbxConfig();
 ```
 
