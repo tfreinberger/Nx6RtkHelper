@@ -86,7 +86,8 @@ NtripParameter ntripParameter = new NtripParameter("address", port, "mountpoint"
 rtkEngine.setNtripParameter(ntripParameter);
 rtkEngine.start(OnDataReceivedListener, OnStatusChangeListener);  
 ```
-##Attention
+## Attention
+
 To receive correction data, you have to send NMEA GGA messages to the Source.
 *Example:*
 ```
@@ -101,6 +102,7 @@ nx6RtkHelper.receiveNmeaSentence(new Nx6RtkHelper.OnNmeaSentenceListener() {
         });
 ```
 *Callbacks*
+
 After sending valid GGA sentences, rtk corrections are receiving. 
 Send the rtk corrections to the module like this.
 The module will automatically recieve corrected NMEA data.
