@@ -19,6 +19,7 @@ Nx6RtkHelper.powerOn(true);
 Nx6RtkHelper nx6RtkHelper = new Nx6RtkHelper();
 nx6RtkHelper.openSerialPath("/dev/ttyHSL1", Baudrate.DEFAULT_F9P, 0);  // DEFAULT_F9P = 38400
 ```
+
 # Read Nmea Messages
 ```
 nx6RtkHelper.startNmeaReading();
@@ -32,3 +33,9 @@ nx6RtkHelper.receiveNmeaSentence(new Nx6RtkHelper.OnNmeaSentenceListener() {
         });
 ```
 
+# Ublox Configuration
+Example:
+```
+nx6RtkHelper.sendUbxCommand(UbxCommands.enableGNSMessages());
+nx6RtkHelper.saveUbxConfig();
+```
