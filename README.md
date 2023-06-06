@@ -89,6 +89,7 @@ rtkEngine.start(OnDataReceivedListener, OnStatusChangeListener);
 ## Attention
 
 To receive correction data, you have to send NMEA GGA messages to the Source.
+
 *Example:*
 ```
 nx6RtkHelper.receiveNmeaSentence(new Nx6RtkHelper.OnNmeaSentenceListener() {
