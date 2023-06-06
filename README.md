@@ -106,7 +106,7 @@ nx6RtkHelper.receiveNmeaSentence(new Nx6RtkHelper.OnNmeaSentenceListener() {
 
 After sending valid GGA sentences, rtk corrections are receiving. 
 Send the rtk corrections to the module like this.
-The module will automatically recieve corrected NMEA data.
+The module will automatically handle it and you are able to receive corrected NMEA data.
 ```
 @Override
     public void onRTKData(byte[] data, int size) {
