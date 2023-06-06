@@ -55,3 +55,13 @@ rtkSourceTable.getSourceTableList(new RtkSourceTable.OnSourceTableList() {
                 Log.i("SourceTable: ", sourceTable);
             }
         });
+```
+Find Mountpoints of Source type Stream.
+```
+rtkSourceTable.getSourceTypeStream(new RtkSourceTable.OnSourceTypeStream() {
+            @Override
+            public void onSourceType(String mountPoint) {
+                Log.i("Mountpoint: ", mountPoint);
+            }
+        });
+```
