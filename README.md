@@ -72,7 +72,7 @@ rtkSourceTable.getSourceTypeStream(new RtkSourceTable.OnSourceTypeStream() {
 
 **Connect to Source**
 
-Connect to a NTRIP Source by using your Credentials
+Connect to a NTRIP Source by using your Credentials.
 ```
 RtkEngine rtkEngine = new RtkEngine();
 NtripParameter ntripParameter = new NtripParameter("address", port, "mountpoint", "username", "password");
