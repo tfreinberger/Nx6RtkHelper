@@ -42,7 +42,8 @@ nx6RtkHelper.saveUbxConfig();
 ```
 
 # RTK Client
-Get your Sourcetable by searching with address and port. (Address can be IP or Domain) Domain without (http/s://) e.g. Address: euref-ip.net & Port: 2101
+Get your Sourcetable by searching with address and port. (Address can be IP or Domain) 
+Use Domain without (http/s://) e.g. Address: euref-ip.net & Port: 2101 
 
 Requires Permission: 
 ``` <uses-permission android:name="android.permission.INTERNET"/> ```
