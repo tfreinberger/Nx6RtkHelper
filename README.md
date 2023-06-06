@@ -42,7 +42,7 @@ nx6RtkHelper.saveUbxConfig();
 ```
 
 # RTK Client
-*Source Table*
+**Source Table**
 Get your Sourcetable by searching with address and port. (Address can be IP or Domain)
 
 Use Domain without (http/s://) e.g. Address: euref-ip.net & Port: 2101 
