@@ -43,6 +43,7 @@ nx6RtkHelper.saveUbxConfig();
 
 # RTK Client
 Get your Sourcetable by searching with address and port. (Address can be IP or Domain)
+Requires Permission: ``` <uses-permission android:name="android.permission.INTERNET"/> ```
 ```
 RtkSourceTable rtkSourceTable = new RtkSourceTable();
 rtkSourceTable.searchForSourceTable("address", port);
