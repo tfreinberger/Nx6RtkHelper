@@ -9,5 +9,5 @@ settings.gradle
   - maven { url "https://jitpack.io" }
 
 build.gradle
-- implementation 'com.github.tfreinberger:Nx6RtkHelper:1.0.0'
+- implementation 'com.github.tfreinberger:Nx6RtkHelper:Tag'
 
