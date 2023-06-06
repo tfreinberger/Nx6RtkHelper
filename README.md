@@ -22,7 +22,7 @@ nx6RtkHelper.openSerialPath("/dev/ttyHSL1", Baudrate.DEFAULT_F9P, 0);  // DEFAUL
 // nx6RtkHelper.closeSerialPath();
 ```
 ### Baudrate
-`rgb(9, 105, 218)`
+> Tip: Use the module with Baudrate 115200 for better RTK performance!
 
 # Read Nmea Messages
 ```
