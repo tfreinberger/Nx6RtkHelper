@@ -76,9 +76,9 @@ rtkSourceTable.getSourceTypeStream(new RtkSourceTable.OnSourceTypeStream() {
             }
         });
 ```
-Get back Mountpoint list
+Get back Mountpoint list.
 ```
-rtkSourceTable.getMpList()
+ArrayList<String> mpList = rtkSourceTable.getMpList();
 ```
 
 
