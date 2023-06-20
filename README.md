@@ -76,6 +76,11 @@ rtkSourceTable.getSourceTypeStream(new RtkSourceTable.OnSourceTypeStream() {
             }
         });
 ```
+Get back Mountpoint list
+```
+rtkSourceTable.getMpList()
+```
+
 
 **Connect to Source**
 
