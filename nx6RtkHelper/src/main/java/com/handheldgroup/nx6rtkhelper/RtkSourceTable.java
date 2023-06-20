@@ -16,6 +16,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class RtkSourceTable {
 
@@ -24,6 +25,8 @@ public class RtkSourceTable {
 
     private OnSourceTableList onSourceTableList;
     private OnSourceTypeStream onSourceTypeStream;
+
+    ArrayList<String> mpList;
 
     public interface OnSourceTableList {
         void onSourceTableListToString(String sourceTable);
@@ -45,6 +48,10 @@ public class RtkSourceTable {
         this.onSourceTypeStream = onSourceTypeStream;
     }
 
+    public ArrayList<String> getMpList() {
+        return mpList;
+    }
+
     class RequestSourceTask extends AsyncTask<String, Integer, String> {
 
         String line;
@@ -55,6 +62,8 @@ public class RtkSourceTable {
             Socket socket = new Socket();
             InetAddressValidator validator = InetAddressValidator.getInstance();
             InetSocketAddress socketAddress = null;
+
+            mpList = new ArrayList<>();
 
             // make sure to use IPv4 address
             try {
@@ -97,7 +106,9 @@ public class RtkSourceTable {
                             }
                         }
                         String[] stringLines = baos.toString().split(NTRIP_PROTOCOL_SEPARATOR_CRLF);
-                        onSourceTableList.onSourceTableListToString(baos.toString());
+                        if (onSourceTableList != null) {
+                            onSourceTableList.onSourceTableListToString(baos.toString());
+                        }
                         baos.close();
                         for (String line : stringLines) {
                             if (line.length() < 3) {
@@ -112,7 +123,10 @@ public class RtkSourceTable {
                                 case STR:
                                     String[] parts = line.split(";", 19);
                                     String mountPoint = parts[1];
-                                    onSourceTypeStream.onSourceType(mountPoint);
+                                    if (onSourceTypeStream != null) {
+                                        onSourceTypeStream.onSourceType(mountPoint);
+                                        mpList.add(mountPoint);
+                                    }
                             }
                         }
                     } catch (IOException e) {

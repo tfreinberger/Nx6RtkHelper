@@ -48,9 +48,9 @@ public class Nx6RtkHelper {
         }
     }
 
-    public void openSerialPath(String path, int baudrate, int flag) {
+    public void openSerialPath(int baudrate, int flag) {
         try {
-            serialPort = new SerialPort(new File(path), baudrate, flag);
+            serialPort = new SerialPort(new File("/dev/ttyHSL1"), baudrate, flag);
             inputStream = serialPort.getInputStream();
             outputStream = serialPort.getOutputStream();
         } catch (IOException e) {

@@ -49,7 +49,7 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId = 'com.github.tfreinberger'
+                groupId = 'com.handheldgroup'
                 artifactId = 'nx6-rtk-helper'
                 version = '1.0'
             }
